@@ -3,7 +3,6 @@ package br.ufsc.si;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 public class Estado {
 
@@ -96,19 +95,16 @@ public class Estado {
 
 	private void gerarHeuristica() {
 		int[][] estadoFinal = Principal.estadoFinal;
-		int esperado = 0;
 		int count = 0;
 		for (int linha = 0; linha < TOTAL_LINHAS; linha++) {
 			for (int coluna = 0; coluna < TOTAL_COLUNAS; coluna++) {
 				int valor = estado[linha][coluna];
-				esperado++;
-				if (valor != 0 && valor != esperado) {
+				if (valor != 0) {
 					count += Math.abs(linha - obterLinhaFinal(estadoFinal, valor))
 							+ Math.abs(coluna - obterColunaFinal(estadoFinal, valor));
 				}
 			}
 		}
-
 		this.heuristica = count;
 	}
 
