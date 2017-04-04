@@ -14,9 +14,9 @@ public class Principal {
 
 	public static void main(String[] args) {
 
-		// int[][] estadoInicial = criarEstadoInicialRandomico();
+		int[][] estadoInicial = criarEstadoInicialRandomico();
 		// int[][] estadoInicial = { { 5, 4, 0 }, { 6, 1, 8 }, { 7, 3, 2 } };
-		int[][] estadoInicial = { { 8, 6, 7 }, { 2, 5, 4 }, { 3, 0, 1 } };
+		// int[][] estadoInicial = { { 8, 6, 7 }, { 2, 5, 4 }, { 3, 0, 1 } };
 		// int[][] estadoInicial = { { 6, 4, 7 }, { 8, 5, 0 }, { 3, 2, 1 } };
 		// int[][] estadoInicial = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 0 } };
 		// int[][] estadoInicial = { {3,2,1}, {0,6,7}, {5,4,8}};
@@ -39,7 +39,6 @@ public class Principal {
 		}
 
 		// Mostrar resultado
-
 		System.out.println("Resultado: ");
 		List<Estado> resultados = new ArrayList<>();
 		while (estado != null) {

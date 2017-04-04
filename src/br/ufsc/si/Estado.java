@@ -100,8 +100,9 @@ public class Estado {
 			for (int coluna = 0; coluna < TOTAL_COLUNAS; coluna++) {
 				int valor = estado[linha][coluna];
 				if (valor != 0) {
-					count += Math.abs(linha - obterLinhaFinal(estadoFinal, valor))
-							+ Math.abs(coluna - obterColunaFinal(estadoFinal, valor));
+					int linhaDistante = Math.abs(linha - obterLinhaFinal(estadoFinal, valor));
+					int colunaDistante = Math.abs(coluna - obterColunaFinal(estadoFinal, valor));
+					count += linhaDistante + colunaDistante;
 				}
 			}
 		}
