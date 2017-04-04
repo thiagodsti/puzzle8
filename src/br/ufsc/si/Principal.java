@@ -33,8 +33,8 @@ public class Principal {
 
 		visitados.add(estado);
 		while (estado.igualAoEstado(estadoFinal) == false) {
-			adicionarEstadosNaFronteira(estado);
-			ordenarFronteira();
+			adicionarEstadosNaFronteiraOrdenado(estado);
+			//ordenarFronteira();
 			estado = obterPrimeiroDaFronteiraNaoVisitadoRemovendo();
 			//estado = obterPrimeiroDaFronteiraNaoVisitado();
 			visitados.add(estado);
@@ -84,6 +84,22 @@ public class Principal {
 		return null;
 	}
 
+	private static void adicionarEstadosNaFronteiraOrdenado(Estado estado) {
+		for (Estado filho : estado.criarFilhos()) {
+			boolean inserido = false;
+			for (int i=0;i<fronteira.size();i++) {
+				if (filho.valor <= fronteira.get(i).valor) {
+					fronteira.add(i, filho);
+					inserido = true;
+					break;
+				}
+			}
+			if (inserido == false) {
+				fronteira.add(filho);
+			}
+		}
+	}
+	
 	private static void adicionarEstadosNaFronteira(Estado estado) {
 		fronteira.addAll(estado.criarFilhos());
 	}
